@@ -56,12 +56,12 @@ task('deploy:slack', function () {
                     ],
                     [
                         'title' => 'Stage',
-                        'value' => $stage,
+                        'value' => get('stage'),,
                         'short' => true,
                     ],
                     [
                         'title' => 'Branch',
-                        'value' => $branch,
+                        'value' => !get('branch') ? "master" : get('branch'),
                         'short' => true,
                     ],
                     [
@@ -93,7 +93,7 @@ task('deploy:slack', function () {
         '{{host}}' => get('hostname'),
         '{{stage}}' => $stage,
         '{{user}}' => $user,
-        '{{branch}}' => $branch,
+        '{{branch}}' => !get('branch') ? "master" : get('branch'),
         '{{app_name}}' => isset($config['app']) ? $config['app'] : 'app-name',
     ];
     $config['message'] = strtr($config['message'], $messagePlaceHolders);
