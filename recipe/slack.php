@@ -56,7 +56,7 @@ task('deploy:slack', function () {
                     ],
                     [
                         'title' => 'Stage',
-                        'value' => get('stage'),,
+                        'value' => get('stage'),
                         'short' => true,
                     ],
                     [
